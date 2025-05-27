@@ -14,7 +14,7 @@ const TaskInput = ({ onAddTask }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="d-flex flex-column align-items-center gap-3">
+        <form onSubmit={handleSubmit} className="d-flex flex-column align-items-center gap-3 mt-3">
             <input
                 className="form-control"
                 placeholder="Write Your Task..."

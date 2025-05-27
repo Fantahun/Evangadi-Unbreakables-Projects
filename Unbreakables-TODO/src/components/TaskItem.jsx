@@ -2,11 +2,11 @@ import React from 'react';
 
 const TaskItem = ({ task, index, toggleComplete, editTask, deleteTask }) => {
     return (
-        <div className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded bg-white">
-            <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-                <p>{task.text}</p>
+        <div className="d-flex justify-content-between align-items-center mb-2 p-2 border rounded bg-white gap-3">
+            <span className='text-start' style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+                {task.text}
             </span>
-            <div>
+            <div className="d-flex align-items-center border-start">
                 <button
                     onClick={() => toggleComplete(index)}
                     className={`btn btn-sm  ${task.completed ? 'text-success' : ''}`}
