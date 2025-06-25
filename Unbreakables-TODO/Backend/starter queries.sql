@@ -22,6 +22,13 @@ CREATE TABLE TODOLIST (
 ✅ Add the last_updated_time column to the table 
 alter TABLE TODOLIST add COLUMN last_updated_time DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
 
+✅ Sample select all statement (selects everything)
+SELECT * FROM TODOLIST;
+
+✅ Sample select using WHERE clause (selects specific task)
+SELECT * FROM TODOLIST
+WHERE id = 1;
+
 
 ✅ Sample INSERT (new task)
 
