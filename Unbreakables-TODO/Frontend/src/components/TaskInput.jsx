@@ -1,15 +1,38 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+
 
 const TaskInput = ({ onAddTask }) => {
     const [input, setInput] = useState('');
 
-    const handleSubmit = (e) => {
+   async function handleSubmit(e) {
+       
         e.preventDefault();
         if (input.trim() == '') {
             alert("Seriously🙄? Please write your task first 😊")
             return;
         }
-        onAddTask(input);
+       // onAddTask(input);
+
+
+        // call api endpoint using axios
+        try {
+            const res = await axios.post('http://localhost:5000/api/todos/addTodo', {
+                title: input,
+                completed: false
+            });
+
+            // Notify parent with newly added task
+            onAddTask(res.data.title);
+            console.log(res.data);
+
+            setInput('');
+        } catch (err) {
+            console.error('Error adding task:', err);
+            alert('Failed to add task');
+        }
+
+    
         setInput('');
     };
 
